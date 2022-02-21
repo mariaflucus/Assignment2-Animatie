@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment - Animatie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            background-color: #050210;
+        }
+
+        .circle{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            background: linear-gradient( #fb5dad, #55fb9f, #b97aff);
+
+            animation-name: animation1;
+            animation-iteration-count: infinite;
+            animation-duration: 0.7s;
+            animation-timing-function: linear;
+        }
+
+        @keyframes animation1{
+            from{
+                transform: rotate(0deg);
+            } 
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .circle span {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+        }
+
+        .circle span:nth-child(1) {
+            filter: blur(20px);
+        }
+
+        .circle span:nth-child(2) {
+            filter: blur(40px);
+        }
+
+        .circle::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            background-color: #050210;
+            border-radius: 100%;
+
+            animation-name: animation2;
+            animation-iteration-count: infinite;
+            animation-duration: 0.7s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            animation-direction: alternate;
+        }
+
+        @keyframes animation2{
+            0%{
+                transform: scale(10px, 10px);
+                filter: brightness(0%);
+            }
+            50%{
+                transform: scale(135px, 135px);
+                filter: brightness(100%);
+            } 
+            100%{
+                transform: scale(270px, 270px);
+                filter: brightness(150%);
+            }
+        }
+
+</style>
+
+</head>
+<body>
+    <div class="circle">
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>
